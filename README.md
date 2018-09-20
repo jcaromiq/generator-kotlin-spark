@@ -1,4 +1,4 @@
-#generator-kotlin-spark [![NPM version][npm-image]][npm-url] 
+# generator-kotlin-spark [![NPM version][npm-image]][npm-url] 
 > Seed Kotlin-sparkFramework
 
 ## Installation
