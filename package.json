@@ -1,0 +1,33 @@
+{
+  "name": "generator-kotlin-spark",
+  "version": "1.0.0",
+  "description": "Seed for Kotlin with spark framework",
+  "author": {
+    "name": "JoaquinCaro",
+    "email": "me@joaquin-caro.es",
+    "url": "https://github.com/jcaromiq/generator-kotlin-spark"
+  },
+  "files": [
+    "generators"
+  ],
+  "main": "generators/index.js",
+  "keywords": [
+    "yeoman-generator",
+    "kotlin",
+    "spark",
+    "seed"
+  ],
+  "scripts": {
+    "release": "release-it",
+    "test": "echo no test"
+  },
+  "devDependencies": {
+    "release-it": "^7.4.7"
+  },
+  "dependencies": {
+    "yeoman-generator": "3.1.1",
+    "mkdirp": "0.5.1"
+  },
+  "repository": "jcaromiq/generator-kotlin-spark",
+  "license": "Apache-2.0"
+}

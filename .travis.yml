@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+- "9"
+
+deploy:
+  provider: script
+  skip_cleanup: true
+  script: yarn release -n
+  on:
+    branch: master
+    
+notifications:
+  email:
+    recipients:
+    - me@joaquin-caro.es
+    on_success: change
+    on_failure: always

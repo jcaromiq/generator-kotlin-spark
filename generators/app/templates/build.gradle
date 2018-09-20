@@ -1,0 +1,59 @@
+group '<%= packageName %>'
+version '1.0'
+
+buildscript {
+    ext.kotlin_version  = '1.2.61'
+    ext.sparkKotlin_version = '1.0.0-alpha'
+    ext.junit_version   = '5.3.0'
+    ext.assertj_version = '3.10.0'
+    ext.mockito_version = '2.19.0'
+    
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+apply plugin: 'kotlin'
+
+jar {
+    manifest {
+        attributes 'Main-Class': '<%= packageName %>.AppKt'
+    }
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    compile "com.sparkjava:spark-kotlin:$sparkKotlin_version"
+    testCompile "org.assertj:assertj-core:$assertj_version"
+    testCompile "org.mockito:mockito-core:$mockito_version"
+    testCompile "org.junit.jupiter:junit-jupiter-api:$junit_version"
+    testCompile "org.junit.jupiter:junit-jupiter-params:$junit_version"
+    testRuntime "org.junit.jupiter:junit-jupiter-engine:$junit_version"
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "PASSED", "FAILED", "SKIPPED"
+    }
+}
+
+sourceSets {
+    main.kotlin.srcDirs += "src/main/kotlin"
+    test.kotlin.srcDirs += "src/test/kotlin"
+}
