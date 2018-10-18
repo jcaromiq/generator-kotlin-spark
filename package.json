@@ -22,7 +22,7 @@
     "test": "echo no test"
   },
   "devDependencies": {
-    "release-it": "^7.4.7"
+    "release-it": "7.4.7"
   },
   "dependencies": {
     "yeoman-generator": "3.1.1",
